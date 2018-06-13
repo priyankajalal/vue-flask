@@ -1,18 +1,38 @@
 <template>
-	<div>
-		<h1>iview news </h1>
-  <b-card no-block>
-    <b-tabs>
-      <b-tab title="Tab 1">
-        Tab 1 Contents
-      </b-tab>
-      <b-tab title="Tab 2">
-        Tab 2 Contents <b-button size="md">Boop</b-button>
-      </b-tab>
-      <b-tab title="Tab 3" disabled>
-        Tab 3 Contents
-      </b-tab>
-    </b-tabs>
-  </b-card>
-</div>
+<div class="container" id="app-jokes">
+   <h2>Click the button to get Random jokes</h2>
+        <button id="btn" class="" v-on:click="getJokes">Get Jokes</button>
+            <table v-for="joke in jokes">
+              <tr>
+              <td>{{ joke.symbol }}</td>
+              <td>{{ joke.exchange }}</td>
+               <td>{{ joke.companyname }}</td>
+              </tr>
+            </table>
+  </div>
 </template>
+<script >
+  
+import axios from 'axios';
+  
+export default {
+  data () {
+    return {
+      jokes: [],
+      loading: false
+    }
+  }, 
+  methods: {
+    getJokes: function () {
+      this.loading = true;
+      axios.get("http://localhost:5000/symbol/msft,goog,aapl")
+      .then((response)  =>  {
+        this.loading = false;
+        this.jokes = response.data;
+      }, (error)  =>  {
+        this.loading = false;
+      })
+    }
+  },
+}
+</script>

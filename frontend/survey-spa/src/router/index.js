@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Survey from '@/components/Survey'
-import PageNotFound from '@/components/PageNotFound.vue'
+import PageNotFound from '@/components/PageNotFound'
 
 Vue.use(Router)
 

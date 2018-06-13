@@ -1,7 +1,8 @@
 <template>  
 <div>  
+<!---<app-assetscore></app-assetscore>
 <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
-<app-survey></app-survey>
+<app-survey></app-survey>-->
 <news></news>
 </div>  
 </template>  
@@ -11,11 +12,13 @@
 import Ninjas from './Ninjas.vue';
 import Surveys from './Survey.vue';
 import News from './News.vue';
+import AssetScore from './AssetScore.vue';
 export default {
     components: {
         'app-ninjas': Ninjas,
         'app-survey': Surveys,
-        'news' : News
+        'news' : News,
+        'app-assetscore' : AssetScore
     },
   data() {
     return {
